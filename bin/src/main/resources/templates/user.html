@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	
+		<meta charset="ISO-8859-1"></meta>
+		<title>Usuario</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script type="text/javascript" th:src="@{/js/race.js}"></script>
+				
+	</head>
+
+	<body>
+    	<div th:replace="fragments/header :: header"></div>
+    	<div class="container">
+    		<form th:action="@{/user/registrar}" method="post" th:object="${user}">
+    			<div class="form-group">
+    				<label for="idUsuario">ID:</label>
+    				<input type="text" class="form-control" th:field="*{idUsuario}"></input>
+    				
+    				<div class="form-group">
+    					<label for="nameUsuario">Nombre:</label>
+    					<input type="text" class="form-control" th:field="*{nameUsuario}" id="nombre"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('nameUsuario')}" 
+								th:errors="*{nameUsuario}">
+						</div>
+    					
+    				</div>
+    					<div class="form-group">
+    					<label for="addressUsuario">Direccion:</label>
+    					<input type="text" class="form-control" th:field="*{addressUsuario}" id="nombre"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('addressUsuario')}" 
+								th:errors="*{addressUsuario}">
+						</div>
+    					
+    				</div>
+ 
+    					<div class="form-group">
+    					<label for="emailUsuario">Correo Electronico:</label>
+    					<input type="text" class="form-control" th:field="*{emailUsuario}" id="nombre"></input>
+
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('emailUsuario')}" 
+								th:errors="*{emailUsuario}">
+						</div>
+    					
+    				</div>
+    				
+    			</div>
+    			<button type="submit" class="btn btn-primary">Aceptar</button>
+    			<a href="/user/listar" class="btn btn-danger">Cancelar</a>
+    		</form>
+    	</div>
+    	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+
+</html>
