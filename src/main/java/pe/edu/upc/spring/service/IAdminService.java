@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import pe.edu.upc.spring.model.Admin;
 
+
+
 public interface IAdminService {
 	public boolean registrar(Admin admin);
 	public void eliminar(int idAdmin);
